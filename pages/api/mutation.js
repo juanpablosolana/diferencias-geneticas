@@ -1,3 +1,4 @@
+import isFilter from "../../services/filter"
 export default function handler(req, res) {
 
   if (req.method !== 'POST') return res.status(403).send()
@@ -6,17 +7,16 @@ export default function handler(req, res) {
     // función principal
 
     let mutation = false
-
-    const horizontal = dna.filter(letter => {
-      return (
-        letter.includes('AAAA') ||
-        letter.includes('TTTT') ||
-        letter.includes('CCCC') ||
-        letter.includes('GGGG')
-      )
+    const horizontal = isFilter(dna)
+    const leftEnd = dna.map((letter,index )=> {
+      return letter[index]
     })
-    console.log(horizontal.length <= 1)
+    const rightEnd = dna.map((letter,index )=> {
+      return letter[letter.length - index - 1]
+    })
+    console.log(horizontal, isFilter([leftEnd.join('')]),[rightEnd.join('')])
 
+    horizontal.length >1? mutation = true : null
     mutation ? res.status(200).send() : res.status(403).send()
   }
   hasMutation(req.body.dna)
