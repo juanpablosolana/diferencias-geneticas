@@ -1,21 +1,25 @@
-
 export default function handler(req, res) {
-  // validar que la petición solo se realice por el método POST
+
   if (req.method !== 'POST') return res.status(403).send()
-
-  // función principal
+  // validar que la petición solo se realice por el método POST equivalente a app.post('/api/mutation')
   function hasMutation(dna) {
-    // solo se puede aceptar un ADN con estas letras
-    const dnaString = ['A', 'T', 'G', 'C']
-    const dnaSplit = dna.map(letter => letter.toUpperCase().split(''))
-    const dnaFilter = dnaSplit.map(letters => letters.filter(letter => dnaString.includes(letter) ? letter : (res.status(403).send())))
-    console.log(dnaFilter)
+    // función principal
 
-    res.status(200).json(dnaFilter)
+    let mutation = false
 
+    const horizontal = dna.filter(letter => {
+      return (
+        letter.includes('AAAA') ||
+        letter.includes('TTTT') ||
+        letter.includes('CCCC') ||
+        letter.includes('GGGG')
+      )
+    })
+    console.log(horizontal.length <= 1)
+
+    mutation ? res.status(200).send() : res.status(403).send()
   }
-
-  // invocar la función principal enviando los parámetros obtenidos desde la petición
   hasMutation(req.body.dna)
+  // invocar la función principal enviando los parámetros obtenidos desde la petición
 
 }
