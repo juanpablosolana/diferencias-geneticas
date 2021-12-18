@@ -2,18 +2,19 @@ import dbConnect from '../../lib/db';
 import Mutation from '../../models/mutation';
 // console.log(dbConnect)
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
   const { method } = req
 
-   dbConnect()
+   await dbConnect()
 
   switch (method) {
     case 'GET':
       try {
-          const mutations =  Mutation.find({})
-          res.status(200).json({ success: true, data: mutations })
+          const mutations =  await Mutation.find({})
+          // console.log(mutations)
+        res.status(200).json(mutations)
         } catch (error) {
-          res.status(400).json({ error: error })
+          res.status(400).json(error)
         }
       break
     case 'POST':

@@ -14,12 +14,11 @@ export default function handler(req, res) {
     const upDown = dna.map((letter )=> {
       return letter[0] //vertical
     })
-    const horizontal = isFilter(dna) // solo si encuentra la cadena de mutacion horizontal
-    const leftToRight = isFilter([leftEnd.join('')])
+    const horizontal = isFilter(dna) // horizontal
+    const leftToRight = isFilter([leftEnd.join('')]) // el resultado no llega formateado por eso el [.join(')]
     const rightToLeft = isFilter([rightEnd.join('')])
     const upToDown = isFilter([upDown.join('')])
     const result = horizontal.length + leftToRight.length + rightToLeft.length + upToDown.length
-
     result>1? mutation = true : null
     mutation ? res.status(200).end() : res.status(403).end()
   }
