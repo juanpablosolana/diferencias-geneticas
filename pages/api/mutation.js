@@ -1,4 +1,5 @@
 import isFilter from "../../services/filter" // la función verifica las condiciones del filtro
+import {mutationUpdate, noMutationsUpdate} from "../../services/updater" // la función actualiza el documento }
 export default function handler(req, res) {
 
   if (req.method !== 'POST') return res.status(403).send() //equivalente a app.post('/api/mutation')
@@ -20,7 +21,16 @@ export default function handler(req, res) {
     const upToDown = isFilter([upDown.join('')])
     const result = horizontal.length + leftToRight.length + rightToLeft.length + upToDown.length
     result>1? mutation = true : null
-    mutation ? res.status(200).end() : res.status(403).end()
+
+    if (mutation) {
+      mutationUpdate()
+      .then(()=>{res.status(200).end()})
+      .catch(error=>console.log(error))
+    } else{
+      noMutationsUpdate()
+        .then(() => { res.status(403).end() })
+        .catch(error => console.log(error))
+    }
   }
   hasMutation(req.body.dna) // invocar la función principal enviando los parámetros obtenidos desde la petición
 }
