@@ -1,17 +1,18 @@
-function leftEnd(dna) {
-  return leftEnd=dna.map((letter, index) => {
-    return letter[index] // solo si encuentra la cadena de mutacion dirección oblicua izquierda a derecha
+const leftEnd = (dna) => {
+  return dna.map((letter, index) => {
+    return letter[index] //oblicua izquierda a derecha
   })
 }
-function rightEnd(dna) {
-  dna.map((letter, index) => {
-    return letter[letter.length - index - 1] // solo si encuentra la cadena de mutacion dirección oblicua derecha a izquierda
-  })
-}
-function upDown(dna) {
 
-  dna.map((letter) => {
-    return letter[0] // solo si encuentra la cadena de mutacion dirección vertical
+const rightEnd = (dna) => {
+  return dna.map((letter, index) => {
+    return letter[letter.length - index - 1] // oblicua derecha a izquierda
   })
 }
-export {leftEnd, rightEnd, upDown}
+
+const upDown = (dna) => {
+  return dna.map((letter) => {
+    return letter[0] //vertical
+  })
+}
+export { leftEnd, rightEnd, upDown }
