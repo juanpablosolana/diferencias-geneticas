@@ -1,10 +1,10 @@
 # Diferencias Genéticas
 
-_El proyecto recibe secuencias de ADN procesandolas para saber si esiste o no una mutación._
+_El proyecto recibe secuencias de ADN procesandolas para saber si exisiste una mutación._
 
 Los endpoints son :
 
-https://diferencias-geneticas.vercel.app/api/stats. <-GET / Para conocer las estadisticas historicas de las pruebas
+https://diferencias-geneticas.vercel.app/api/stats. <-GET / Para conocer las estadísticas historicas de las pruebas
 
 https://diferencias-geneticas.vercel.app/api/mutation <- POST / para procesar el arreglo de datos
 
@@ -12,7 +12,7 @@ https://diferencias-geneticas.vercel.app/api/mutation <- POST / para procesar el
 
 _Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
 
-Mira **Deployment** para conocer como desplegar el proyecto.
+Mira **Despliegue** para conocer como desplegar el proyecto.
 
 ### Pre-requisitos 📋
 
