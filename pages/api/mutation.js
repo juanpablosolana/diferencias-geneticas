@@ -1,6 +1,6 @@
 import isFilter from "../../services/filter" // la función verifica las condiciones del filtro
 import { leftEnd, rightEnd, upDown } from "../../services/array" // las funciones de busqueda de patrones
-import { mutationUpdate, noMutationsUpdate } from "../../services/updater" // actualizar las estadisticas
+import mutationUpdate  from "../../services/updater" // actualizar las estadisticas
 
 export default function handler(req, res) {
 
@@ -16,11 +16,11 @@ export default function handler(req, res) {
     result>1? mutation = true : null
 
     if (mutation) { // actualizando las estadisticas y retornado resultados
-      mutationUpdate()
+      mutationUpdate('mutationUpdate')
       .then(()=>{res.status(200).end()})
       .catch(error=>res.status(500).send(error))
     } else{
-      noMutationsUpdate()
+      mutationUpdate('noMutationsUpdate')
       .then(() => { res.status(403).end() })
       .catch(error => res.status(500).send(error))
     }
