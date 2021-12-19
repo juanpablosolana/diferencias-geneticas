@@ -1,34 +1,87 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Diferencias Genéticas
 
-## Getting Started
+_El proyecto recibe secuencias de ADN procesandolas para saber si esiste o no una mutación._
 
-First, run the development server:
+Los endpoints son :
 
-```bash
-npm run dev
-# or
-yarn dev
+https://diferencias-geneticas.vercel.app/api/stats. <-GET / Para conocer las estadisticas historicas de las pruebas
+
+https://diferencias-geneticas.vercel.app/api/mutation <- POST / para procesar el arreglo de datos
+
+## Comenzando 🚀
+
+_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
+
+Mira **Deployment** para conocer como desplegar el proyecto.
+
+### Pre-requisitos 📋
+
+_-Node JS_
+
+```
+node -v
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Instalación 🔧
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+_Los pasas para instalar son:_
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+_Clona el repositorio_
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```
+git clone https://gitlab.com/juanpablosolana/diferencias-geneticas.git
+```
 
-## Learn More
+Entra a carpeta
 
-To learn more about Next.js, take a look at the following resources:
+```
+cd diferencias-geneticas
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Instala las dependencias
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```
+npm i
+```
 
-## Deploy on Vercel
+Corre el entorno de desarrollo
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+npm run dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---
+
+El proyecto ***necesita una cadena de conexión con Mongo Atlas DB*** y el id de un documento en una variable de entorno por lo que se debe crear un archivo .env.local en la carpeta raiz con la siguiente estructura
+
+DB = <- Cadena de conexión Mongo Atlas DB ->
+
+id= <- id del documento a procesar ->
+
+---
+
+## Ejecutando las pruebas ⚙️
+
+Para correr los test de pruebas con Jest solo tienes que ejecutar el entorno dev
+
+```
+npm run test
+```
+
+Los scripts de pruebas se encuentran en la carpeta test / api
+
+### Despliegue 📦
+
+_Al ser un proyecto con NextJS utilicé Vercel para hacer el despligue y se ecuentra vinculado a la rama main del repostorio_
+
+## Construido con 🛠️
+
+_Las herramientas en este proyecto son:_
+
+* NextJS - Para los endpoints / frontend
+* Mongo - Con su servicio cloud Atlas para la base de datos
+* Jest -  Verifica los test
+
+---
+
+⌨️ con ❤️ por Pablo Solana 😊
