@@ -74,6 +74,11 @@ Los scripts de pruebas se encuentran en la carpeta test / api
 
 _Al ser un proyecto con NextJS utilicé Vercel para hacer el despligue y se ecuentra vinculado a la rama main del repostorio_
 
+- Puedes generar la carpeta necesaria para desplegar en otro servicio con el comando
+- ```
+  npm run build
+  ```
+
 ## Construido con 🛠️
 
 _Las herramientas en este proyecto son:_
