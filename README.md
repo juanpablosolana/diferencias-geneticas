@@ -1,6 +1,6 @@
 # Diferencias Genéticas
 
-_El proyecto recibe secuencias de ADN procesandolas para saber si exisiste una mutación._
+_El proyecto recibe secuencias de ADN y las procesa para saber si exisiste una mutación._
 
 Los endpoints son :
 
@@ -24,7 +24,7 @@ node -v
 
 ### Instalación 🔧
 
-_Los pasas para instalar son:_
+_Los pasos para instalar son:_
 
 _Clona el repositorio_
 
@@ -62,7 +62,7 @@ id= <- id del documento a procesar ->
 
 ## Ejecutando las pruebas ⚙️
 
-Para correr los test de pruebas con Jest solo tienes que ejecutar el entorno dev
+Para correr los test de pruebas con Jest solo tienes que ejecutar el entorno test
 
 ```
 npm run test
