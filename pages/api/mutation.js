@@ -5,8 +5,8 @@ import isValid from "../../services/dnaLetters" // solo si tiene las letras perm
 
 export default function handler(req, res) {
   const dna = req.body.dna
-
   if (req.method !== 'POST') return res.status(400).send({ error: '400' }) //equivalente a app.post('/api/mutation')
+
   function hasMutation(dna) { // función principal
     let mutation = false // si se encuentra una mutación se cambia el estado
     /* Comienza la busqueda de mutaciones */
